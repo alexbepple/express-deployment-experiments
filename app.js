@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express();
+import express from 'express'
+const app = express()
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Moinsen!');
-});
+})
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
-});
+})
 

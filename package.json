@@ -1,5 +1,8 @@
 {
   "private": true,
+  "scripts": {
+    "start": "babel-node app.js"
+  },
   "dependencies": {
     "express": "^4.14.0"
   },

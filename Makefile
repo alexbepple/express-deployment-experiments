@@ -3,7 +3,7 @@ bin := ./node_modules/.bin
 build := build
 entry_point := server.js
 
-app_id := my-app-production
+app_id := my-app-development
 
 .PHONY: build
 build:

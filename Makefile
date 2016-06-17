@@ -1,7 +1,7 @@
 bin := ./node_modules/.bin
 
 build := build
-entry_point := app.js
+entry_point := server.js
 
 app_id := my-app-production
 
@@ -9,6 +9,9 @@ app_id := my-app-production
 build:
 	$(bin)/babel -d $(build) $(entry_point) 
 	$(bin)/babel -d $(build)/lib lib
+
+clean:
+	rm -rf $(build)/*
 
 start:
 	$(bin)/forever start --uid $(app_id) --append $(build)/$(entry_point)

@@ -43,3 +43,6 @@ check_style:
 test:
 	$(bin)/mocha '**/__tests__/**/*.js' --check-leaks --compilers js:babel-register --reporter mocha-unfunk-reporter $(args)
 
+tdd:
+	$(bin)/supervisor --no-restart-on exit -x make test
+

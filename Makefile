@@ -5,6 +5,11 @@ build := build
 entry_point := server.js
 main_code := lib
 
+
+#########
+# Deploy
+#########
+
 app_id := my-app-development
 
 .PHONY: build
@@ -22,13 +27,13 @@ stop:
 	$(bin)/forever stop $(app_id)
 
 
+
+##############
+# Development
+##############
+
 run_server_restarting_on_changes:
 	$(bin)/nodemon -x $(bin)/babel-node -w $(entry_point) -w $(main_code) $(entry_point)
-
-
-########################
-# Building blocks: Code
-########################
 
 check_style:
 	$(bin)/eclint check *

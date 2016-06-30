@@ -39,3 +39,7 @@ check_style:
 	$(bin)/eclint check *
 	$(bin)/standard
 
+.PHONY: test
+test:
+	$(bin)/mocha '**/__tests__/**/*.js' --check-leaks --compilers js:babel-register --reporter mocha-unfunk-reporter $(args)
+

@@ -7,7 +7,7 @@ app_id := my-app-development
 
 .PHONY: build
 build:
-	$(bin)/babel -d $(build) $(entry_point) 
+	$(bin)/babel -d $(build) $(entry_point)
 	$(bin)/babel -d $(build)/lib lib
 
 clean:
@@ -18,4 +18,13 @@ start:
 
 stop:
 	$(bin)/forever stop $(app_id)
+
+
+
+########################
+# Building blocks: Code
+########################
+
+check_style:
+	$(bin)/eclint check *
 

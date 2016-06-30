@@ -27,4 +27,5 @@ stop:
 
 check_style:
 	$(bin)/eclint check *
+	$(bin)/standard
 

@@ -10,6 +10,7 @@
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
     "eclint": "1.1.5",
-    "forever": "^0.15.2"
+    "forever": "^0.15.2",
+    "standard": "7.1.2"
   }
 }

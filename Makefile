@@ -27,15 +27,22 @@ stop:
 	$(bin)/forever stop $(app_id)
 
 
+##########
+# Develop
+##########
 
-##############
-# Development
-##############
-
-run_server_restarting_on_changes:
+dev_server:
 	$(bin)/nodemon \
 		--delay 200ms --watch $(entry_point) --watch $(main_code) --ignore '*test.js' \
 		--exec $(bin)/babel-node $(entry_point)
+
+tdd:
+	$(bin)/supervisor --no-restart-on exit -x make test
+
+
+#######
+# Code
+#######
 
 check_style:
 	$(bin)/eclint check *
@@ -44,7 +51,4 @@ check_style:
 .PHONY: test
 test:
 	$(bin)/mocha '**/__tests__/**/*.js' --check-leaks --compilers js:babel-register --reporter mocha-unfunk-reporter $(args)
-
-tdd:
-	$(bin)/supervisor --no-restart-on exit -x make test
 

@@ -33,7 +33,9 @@ stop:
 ##############
 
 run_server_restarting_on_changes:
-	$(bin)/nodemon --exec $(bin)/babel-node --watch $(entry_point) --watch $(main_code) --ignore '*test.js' $(entry_point)
+	$(bin)/nodemon \
+		--delay 200ms --watch $(entry_point) --watch $(main_code) --ignore '*test.js' \
+		--exec $(bin)/babel-node $(entry_point)
 
 check_style:
 	$(bin)/eclint check *

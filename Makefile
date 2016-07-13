@@ -39,6 +39,15 @@ dev:
 tdd:
 	$(bin)/supervisor --no-restart-on exit -x make test
 
+
+set_up_dev_environment:
+	docker-compose up devbox
+	$(MAKE) initially_fill_container
+	$(MAKE) continuously_sync_with_container
+
+initially_fill_container:
+	unison . socket://localhost:5000/ -ignore 'Path .git' -auto -batch
+
 continuously_sync_with_container:
 	fswatch -o . | xargs -n1 -I{} unison . socket://localhost:5000/ -ignore 'Path .git' -auto -batch
 

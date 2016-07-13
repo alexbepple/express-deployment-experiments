@@ -4,15 +4,23 @@ services:
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
-    working_dir: /app
+    volumes_from:
+      - unison
+    working_dir: /unison
     command: make dev
 
   tdd:
     build: .
-    volumes:
-      - .:/app
-    working_dir: /app
-    command: make tdd
+    volumes_from:
+      - unison
+    working_dir: /unison
+    command: /bin/true
+
+  unison:
+    image: leighmcculloch/unison
+    environment:
+      - UNISON_VERSION=2.48.3
+      - UNISON_WORKING_DIR=/unison
+    ports:
+      - "5000:5000"
 

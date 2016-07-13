@@ -39,6 +39,9 @@ dev:
 tdd:
 	$(bin)/supervisor --no-restart-on exit -x make test
 
+continuously_sync_with_container:
+	fswatch -o . | xargs -n1 -I{} unison . socket://localhost:5000/ -ignore 'Path .git' -auto -batch
+
 
 #######
 # Code

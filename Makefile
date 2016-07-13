@@ -31,7 +31,7 @@ stop:
 # Develop
 ##########
 
-dev_server:
+dev:
 	$(bin)/nodemon \
 		--delay 200ms --watch $(entry_point) --watch $(main_code) --ignore '*test.js' \
 		--exec $(bin)/babel-node $(entry_point)
